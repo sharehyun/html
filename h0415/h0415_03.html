@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+        ul{list-style:none;}
+        a{text-decoration:none; color:inherit;}
+
+        #header-top{width:100%; height:35px; background:black;}
+        #header-top ul{width:400px; height:35px;
+            justify-content:space-between;
+            display:flex; float:right; margin-right:40px;
+            align-items:center;
+        }
+        #header-top li{color:white; font-size: 13px;}
+
+        nav{width:100%; height:81px; border:1px solid black;}
+        #nav-nav{width:1840px; height: 81px; margin: 0 auto; align-items: center; display:flex; justify-content: space-between;}
+        nav .logo{width:100px; height:30px;
+                background:url('images/ico_set.png') -320px -385px no-repeat;
+                background-size: 800px 800px;}
+        nav .menu{width:750px; height: 81px;}
+        nav .q_menu{width:100px; height:52px; border:1px solid black;}
+        .menu ul{display:flex; justify-content:space-between;
+            }
+        .menu a{font-size:22px; font-weight: 700;
+                height:81px; line-height:81px;
+                display:inline-block; box-sizing:border-box;
+            }
+        .q_img1, .q_img2{width:32px; height:32px;}
+        
+
+        #banner{width:100%; height:320px;
+        background:url('images/join_sub.jpg')
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div id="header-top">
+            <ul>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">고객행복센터</a></li>
+                <li><a href="#">배송지역검색</a></li>
+                <li><a href="#">기프트카드 등록</a></li>
+            </ul>
+        </div>
+        <nav>
+            <div id="nav-nav">
+                <div class="logo"><a href="#"></a></div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">COOKIT소개</a></li>
+                        <li><a href="#">COOKIT메뉴</a></li>
+                        <li><a href="#">리뷰</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">MY쿡킷</a></li>
+                    </ul>
+                </div>
+                <div class="q_menu">
+                    <ul>
+                        <li class="q_img1"></li>
+                        <li>장바구니</li>
+                    </ul>
+                    <ul>
+                        <li class="q_img2"></li>
+                        <li>메뉴찾기</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div id="banner"></div>
+
+</body>
+</html>
