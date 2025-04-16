@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+*{margin:0; padding:0;
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;}
+a{text-decoration:none; color:inherit;}
+ul,ol{list-style:none;}
+#header-top{width:100%; height:35px; background: #202020;}
+#header-top ul{width:380px; height:35px;
+    color:white; font-size:13px; margin-right:40px; float: right;
+    display:flex; justify-content: space-between; align-items: center;}
+nav{width:100%; height:81px; border-bottom:1px solid black;}
+#nav-nav{width:1840px; height:81px; margin:0 auto;
+    display: flex; justify-content: space-between; align-items: center;}
+nav .logo a{display: inline-block; width:100px; height:30px;
+    background: url('../images/ico_set.png') -320px -385px no-repeat;
+    background-size: 800px 800px;}
+nav .menu{width:750px;}
+.menu ul{display: flex; justify-content: space-between;}
+.menu a{font-weight: 700; font-size: 22px; line-height:81px; height:81px;
+    display: inline-block; box-sizing:border-box;}
+
+.menu a:hover{border-bottom: 4px solid #8ea400;}
+
+nav .q_menu{width:100px; height:52px;}
+.q_menu ul{font-size: 12px; font-weight: 600; color:#101010;
+    display: flex; justify-content: space-between;}
+.q_menu-img1,.q_menu-img2{margin:0 auto; width:32px; height:32px;}
+.q_menu-img1{background:url('../images/ico_set.png') -584px -320px no-repeat;
+    background-size: 800px 800px;}
+.q_menu-img2{background:url('../images/ico_set.png') -628px -320px no-repeat;
+    background-size: 800px 800px;}
+#banner{width:100%; height:320px; background: url('../images/join_sub.jpg') no-repeat;}
+
+#content{width:100%; height:2000px;}
+section{width:1000px; height:2000px; border: 1px solid black;
+    margin:0 auto;
+}
+.location ul{display:flex;float:right; margin:38px 0 27px;}
+.location li{font-size:13px; color:rgb(92,92,92); font-weight:700;
+    padding:0 13px; background:url('../images/join/bg_location_li.png') right no-repeat;
+}
+.location li:nth-child(3){background:url(''); padding-right:0;}
+section h3{clear:both; padding-bottom:30px; text-align:center;
+    font-size:40px; color:#333;
+}
