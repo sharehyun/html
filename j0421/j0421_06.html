@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+        div{width:200px; height:50px; border: 1px solid black;
+            text-align:center; line-height:49px;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="bmi">BMI 계산하기</h2>
+    <label>신장</label>
+    <input type="text" name="height" id="height">
+    <label>cm</label>
+    <br>
+    <label>체중</label>
+    <input type="text" name="weight" id="weight">
+    <label>kg</label>
+    <br>
+    <button onclick="calBtn()">계산하기</button>
+    <div id="result">0</div>
+    <div id="result2">정상</div>
+
+    <script>
+        function calBtn(){
+            alert("계산하기 실행");
+            /*
+            console.log("키 : "+(document.querySelector("#height").value));
+            console.log("몸무게 : "+(document.querySelector("#weight").value));
+            console.log("글자 :",document.querySelector("#bmi").innerText="결과");
+            */
+
+            let height = Number(document.querySelector("#height").value)/100
+            let weight = Number(document.querySelector("#weight").value)
+            let BMI = weight/(height*height);
+            console.log("신장 :",height*100)
+            console.log("체중 :",weight)
+            console.log("BMI :",document.querySelector("#result").innerText=BMI);
+
+            if(BMI>=30){
+                document.querySelector("#result2").innerText="고도비만";
+            }else if(BMI>=25){
+                document.querySelector("#result2").innerText="비만";
+            }else if(BMI>=23){
+                document.querySelector("#result2").innerText="과체중";
+            }else if(BMI>=18.5){
+                document.querySelector("#result2").innerText="정상";
+            }else{
+                document.querySelector("#result2").innerText="저체중";
+            }
+
+        }
+
+
+
+
+        /*체중(kg), 키(cm) 입력받아 BMI 지수 계산, 결과값 출력
+          체중(kg) ÷ (신장(m) × 신장(m))
+        입력 2개 - 체중, 키
+        키를 cm -> m 변경
+        계산수식을 이용해서 결과값을 출력하시오.
+        */
+        /*
+        let height = Number(prompt("신장(cm)을 입력하시오."))/100;
+        let weight = Number(prompt("체중(kg)을 입력하시오."));
+        
+        console.log("신장 : ",height*100,"cm");
+        console.log("체중 : ",weight,"kg");
+        console.log("BMI : ",weight/(height*height));
+        */
+
+
+
+
+        /*
+        // 국어,영어,수학 점수를 입력받아 값을 출력하시오.
+        let kor = Number(prompt("국어 점수를 입력하세요."));
+        let eng = Number(prompt("영어 점수를 입력하세요."));
+        let math = Number(prompt("수학 점수를 입력하세요."));
+        // 콘솔에 출력
+        console.log("국어 점수 : ",kor);
+        console.log("영어 점수 : ",eng);
+        console.log("수학 점수 : ",math);
+        console.log("합계 : ", kor+eng+math);
+        console.log("평균 : ", (kor+eng+math)/3);
+        */
+    </script>
+    
+</body>
+</html>
