@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        /*
+        // break는 반복문을 완전히 빠져나옴. continue는 1번만 빠져나옴.
+        for(let i=0;i<10;i++){
+            // 짝수제외만 출력하시오.
+            if(i%2==0) break;
+            document.write(i,"<br>");
+        }
+        
+        // 삼항식을 이용해서 최대값을 출력하시오.
+        let a = 30;
+        let b = 50;
+        let c = 20;
+        let result = a>b?(a>c?a:c):(b>c?b:c);
+        document.write(result,"<br>");
+        
+        // max함수 사용
+        let result2 = Math.max(a,b,c);
+        document.write(result,"<br>");
+        
+        // 소수점: round() 반올림(무조건 소수점 첫째자리에서 반올림) ceil() 올림 floor() 버림
+        document.write(Math.round(1.579),"<br>");
+        
+        // 소수점 3자리에서 반올림 하시오. 1.579*100/100
+        document.write(Math.round(1.579*100)/100,"<br>");
+        
+        // 소수점 2자리에서 반올림 18.79
+        document.write(Math.round(18.79*10)/10,"<br>");
+        
+        
+        //Math.random() : 0~1 사이의 난수 0.0000000000001 ~ 0.9999999999999
+        //정수형 1-10까지 숫자중 1개를 출력하시오.
+        document.write(parseInt(10*Math.random())+1,"<br>") 
+        document.write(Math.ceil(Math.random()*10),"<br>") 
+        //정수형 1-45까지 숫자중 1개를 출력
+        document.write(parseint(45*Math.random())+1,"<br>")
+        
+        //정수형 0-9까지 숫자중 1개를 출력
+        document.write(parseInt(10*Math.random()))
+        
+        //랜덤숫자 1-10까지 숫자 3개를 출력하시오.
+        document.write(parseInt(10*Math.random())+1,"<br>");
+        document.write(parseInt(10*Math.random())+1,"<br>");
+        document.write(parseInt(10*Math.random())+1,"<br>");
+        for(let i=1;i<=3;i++){
+            document.write(parseInt(10*Math.random())+1,"<br>");
+        }
+        */
+        
+        let ran1 = parseInt(10*Math.random())+1;
+        let input = 0;
+        let i = 0;
+        while(i<5){
+            input = prompt("숫자를 입력하세요.");
+            if (ran1<input){
+                alert("입력값이 큽니다.","<br>");
+            }else if(ran1>input){
+                alert("입력값이 작습니다.","<br>");
+            }else{
+                alert("정답입니다.","<br>");
+                break;
+            }
+            i++;
+        }
+
+        document.write("정답 : ",ran1,"<br>")
+        document.write("입력값 : ",input,"<br>")
+
+
+
+    </script>
+</body>
+</html>

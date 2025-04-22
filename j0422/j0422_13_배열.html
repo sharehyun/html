@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{text-align:center; border:1px solid black; border-collapse:collapse;}
+        th,td{width:150px;height:40px;}
+    </style>
+
+</head>
+<body>
+    <h2>랜덤숫자 정답</h2>
+    <table>
+        <tr>
+            <th>정답</th>
+            <th id="ran_num">0</th>
+        </tr>
+    </table>
+    <h2>입력숫자</h2>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>입력값</th>
+        </tr>
+        <tbody id="tbody">
+        
+        </tbody>
+    </table>
+    <script>
+
+        //1-10가지 랜덤숫자 6개 출력, 중복숫자 없도록 6개 출력
+        //arr1[] = 6개 출력
+        arr1 = []
+        for(let i=0;i<6;i++){
+            ran = parseInt(10*Math.random())+1;
+            console.log(ran);
+            if(ran!=arr1){
+                arr1.push(ran)
+            }
+            console.log(arr1);
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{text-align:center; border:1px solid black; border-collapse:collapse;}
+        th,td{width:150px;height:40px;}
+    </style>
+
+</head>
+<body>
+    <h2>랜덤숫자 정답</h2>
+    <table>
+        <tr>
+            <th>정답</th>
+            <th id="ran_num">0</th>
+        </tr>
+    </table>
+    <h2>입력숫자</h2>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>입력값</th>
+        </tr>
+        <tbody id="tbody">
+        
+        </tbody>
+        </tr>
+    </table>
+    <script>
+
+        let ran = parseInt(Math.random()*100)+1;
+        console.log(ran);
+        document.querySelector("#ran_num").innerText=ran;
+        let i = 0;
+        let arr1 = [];
+        
+        while (i<5){
+            input = prompt("숫자를 입력하세요.");
+            if(ran<input){
+                alert("큽니다.")
+            }else if(ran>input){
+                alert("작습니다.")
+            }else{
+                alert("정답입니다.")
+                arr1.push(input);
+                break;
+            }
+            arr1.push(input);
+            i++
+        }
+        let hdata=""
+        for (let i=0;i<arr1.length;i++){
+            hdata+="<tr>";
+            hdata+=`<td>${i}</td>`;
+            hdata+=`<td>${input[i]}</td>`
+            hdata+="</tr>"
+            document.querySelector("#tbody").innerText=hdata;
+        }
+
+        /*
+        for (let i=0;i<arr1.length;i++){
+            document.querySelector(`#in_num${i+1}`).innerText=arr1[i]
+        }
+        */
+        
+
+
+
+
+        /*
+        document.querySelector("#in_num2").innerText=arr1[1]
+        document.querySelector("#in_num3").innerText=arr1[2]
+        document.querySelector("#in_num4").innerText=arr1[3]
+        document.querySelector("#in_num5").innerText=arr1[4]
+        */
+
+
+
+        /*
+        // 랜덤숫자 1개를 생성
+        // 5번 시도 후 크다,작다,맞다 출력
+        // 정답 :
+        // 입력한 값 모두 출력
+        
+        let ran = parseInt(10*Math.random())+1
+        let input = 0
+        let in_list = []
+        let i = 0
+        while(i<=5){
+            input = Number(prompt("숫자를 입력하시오."))
+            in_list.push(input)
+            if(ran<input){
+                alert("큽니다.")
+            }else if(ran>input){
+                alert("작습니다.")
+            }else{
+                alert("정답입니다.")
+                break;
+            }
+            i++
+            
+        }
+        
+        document.write("정답 : ",ran,"<br>");
+        document.write("입력한 값 : ",in_list,"<br>")
+        for(let i=0;i<arr1.length;i++){
+            document.write(in_list[i]);
+        }
+        
+        
+        // 배열 추가 : push()-뒤에 추가, unshift()-앞에 추가, splice()-원하는 위치 추가
+        // splice(2,0,"a")-2번째 위치에 'a'를 추가
+        // 배열 삭제 : pop()-뒤에 제거, shift()-앞에 제거, splice()-원하는 위치 제거
+        // splice(2,1)-2번째 요소, 1개를 제거
+        let arr1 = [];
+        //1-100 push
+        for(let i=0;i<100;i++){
+            if((i+1)%2!=0) arr1.push(i+1);
+        }
+        document.write("배열길이 : ",arr1.length,"<br>")
+        for(let i=0;i<arr1.length;i++){
+            document.write(arr1[i],"<br>");
+        }
+
+
+        //파이썬 - 리스트 : 배열
+        let arr1 = [1,2,3,4,5];
+        document.write(arr1[2],"<br>")
+        document.write(arr1[0]," ",arr1[3]," ",arr1[4])
+        */
+
+    </script>
+
+
+</body>
+</html>
