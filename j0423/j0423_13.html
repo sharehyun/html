@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <style>
+        div{width:300px; height:50px; border:1px solid black;}
+    </style>
+    <script>
+        //제이쿼리 선언
+        $(function(){
+            $("#abtn").click(function(){
+                //alert("버튼");
+                console.log("체크박스 :",$("input[name=agree]").length);
+                console.log("체크박스 :",$("input[name=agree]:checked").length);
+                if($("input[name=agree]:checked").length<3){
+                    if (confirm("필수 약관에 모두 동의하셔야 회원가입이 가능합니다. 모두 동의하시겠습니까?")==true){
+                        //배열이 되어진것을 가져옴
+                        //제이쿼리:each 반복문, 자바스크립트:foreach 반복문
+                        $("input[name=agree]").each(function(){
+                            //this-1개, $(this)-기존의 "input[name=agree]:checked"를 가져올 것
+                            this.checked = true;
+                        });
+                    }
+                }
+            });//abtn
+    
+        });//jquery
+    </script>
+</head>
+<body>
+    <div>이용약관에 동의합니다.</div>
+    <input type="checkbox" name="agree" value="1" id="agree1">
+    <label for="agree1">동의</label><br>
+    <div>정보처리약관에 동의합니다.</div>
+    <input type="checkbox" name="agree" value="1" id="agree2">
+    <label for="agree2">동의</label><br>
+    <div>마케팅 수신에 동의합니다.</div>
+    <input type="checkbox" name="agree" value="1" id="agree3">
+    <label for="agree3">동의</label><br>
+    <button id="abtn">가입하기</button>
+
+</body>
+</html>

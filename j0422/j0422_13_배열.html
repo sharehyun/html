@@ -32,15 +32,19 @@
 
         //1-10가지 랜덤숫자 6개 출력, 중복숫자 없도록 6개 출력
         //arr1[] = 6개 출력
-        arr1 = []
+        arr1 = [0,0,0,0,0,0]
         for(let i=0;i<6;i++){
             ran = parseInt(10*Math.random())+1;
             console.log(ran);
-            if(ran!=arr1){
-                arr1.push(ran)
+            for(let j=0;j<6;j++){
+                if(ran==arr1[j]){
+                    ran = parseInt(10*Math.random())+1;
+                    continue;
+                }
+                arr1[i]=ran;
             }
-            console.log(arr1);
         }
+        console.log(arr1);
 
 
 
