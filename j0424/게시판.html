@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+        #container{width:1200px; margin:30px auto; text-align:center;}
+        h2{font-size:40px; margin-bottom:40px;}
+        table{width:1200px; margin:0 auto;}
+        table,th,td{border:1px solid black; border-collapse:collapse;}
+        th{height:50px;background:#eee;}
+        td{height:40px;}
+        button{width:100px; height:35px;}
+        input:focus{outline:none;} /*기본 focus형태를 제거*/
+        input:focus{border:2px solid red;}
+        input{margin-bottom:5px;}
+        #input{margin-bottom:30px;}
+        #input div{font-size:20px; margin-bottom:10px;}
+        #input input{width:500px; height:32px; padding-left:20px;}
+    </style>
+    <script>
+        // list 5개 출력
+        // save버튼 클릭하면 게시글이 추가되도록 구현
+        $(function(){
+            let hdata = ``;
+            let no = 1;
+            //저장+수정저장 여부 확인
+            let suFlag = 0;
+            let updateNum = 0;
+
+            for(let i=0;i<5;i++){
+                hdata+=`<tr id="${i+1}">`;
+                hdata+=`<td>${i+1}</td>`;
+                hdata+=`<td>게시판 text</td>`;
+                hdata+=`<td>작성자</td>`;
+                hdata+=`<td>2025-04-24</td>`;
+                hdata+=`<td>1</td>`;
+                hdata+=`<td>`;
+                hdata+=`<button type="button" class="chgBtn">수정</button>`;
+                hdata+=`<button type="button" class="delBtn">삭제</button>`;
+                hdata+=`</td></tr>`;
+                no++    
+            }
+            $("#tbody").html(hdata);
+
+            $(document).on("click","#save",function(){
+                if (suFlag==0){
+                hdata = ``;
+                hdata+=`<tr id="${no}">`;
+                hdata+=`<td>${no}</td>`;
+                hdata+=`<td>${$("#title").val()}</td>`;
+                hdata+=`<td>${$("#id").val()}</td>`;
+                hdata+=`<td>2025-04-24</td>`;
+                hdata+=`<td>1</td>`;
+                hdata+=`<td>`;
+                hdata+=`<button type="button" class="chgBtn">수정</button>`;
+                hdata+=`<button type="button" class="delBtn">삭제</button>`;
+                hdata+=`</td></tr>`;
+                $("#tbody").prepend(hdata);
+                $("#title").val("");
+                $("#id").val("");
+                no++
+                }else{
+                    hdata = ``;
+                    hdata+=`<td>${no}</td>`;
+                    hdata+=`<td>${$("#title").val()}</td>`;
+                    hdata+=`<td>${$("#id").val()}</td>`;
+                    hdata+=`<td>2025-04-24</td>`;
+                    hdata+=`<td>1</td>`;
+                    hdata+=`<td>`;
+                    hdata+=`<button type="button" class="chgBtn">수정</button>`;
+                    hdata+=`<button type="button" class="delBtn">삭제</button>`;
+                    hdata+=`</td>`;
+                    $(`#${updateNum}`).html(hdata);
+                    $("#title").val("");
+                    $("#id").val(""); 
+                }
+            })//save
+
+
+            
+            $(document).on("click",".delBtn",function(){
+                num = $(this).closest('tr').attr('id');
+                if(confirm(`${num}번 게시글을 삭제하시겠습니까?`)){
+                    $(`#${$(this).closest('tr').attr('id')}`).remove();
+                }
+            })//delBtn
+
+            //수정화면이동 이벤트
+            $(document).on("click",".chgBtn",function(){
+                updateNum = $(this).closest('tr').attr('id');
+                if(confirm("게시글을 수정하시겠습니까?")){
+                    $("#title").val($(this).closest('tr').children()[1].innerText);
+                    $("#id").val($(this).closest('tr').children()[2].innerText);
+                    $("#save").text("수정저장");
+                    suFlag = 1;
+                }
+            });//chgBtn
+
+
+
+
+
+
+
+
+
+
+        });//jquery
+        
+        
+    </script> 
+</head>
+<body>
+    <div id="container">
+        <h2>게시판</h2>
+        <div id="input">
+
+            <div>글을 입력하세요.</div>
+            <input type="text" name="title" id="title" placeholder="제목을 입력하세요."><br>
+            <input type="text" name="id" id="id" placeholder="작성자를 입력하세요."><br>
+            <button type="button" id="save">저장</button>
+        </div>
+        <table>
+            <colgroup>
+                <col width="10%">
+                <col width="*">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="20%">
+            </colgroup>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+                <th>기타</th>
+            </tr>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

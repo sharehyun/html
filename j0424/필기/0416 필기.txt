@@ -1,0 +1,21 @@
+text-align: 가로
+vertical-align: 세로
+
+자식 선택자
+section > p {}  /*section 한 칸 다음(자식요소)에 있는 p만 전체적용*/
+
+인접 형제 선택자
+h1 + p {}  /*자식 중 인접한 첫번째 p요소에만 적용*/
+
+형제 선택자
+h2~ul {}
+
+
+*=   : 값의 일부가 일치하는 속성을 가진 요소를 찾아 스타일 적용
+
+
+li:nth-child(2){background:yellow} (몇번째자식인지)
+중간에 다른 유형이 들어와서 순번에 끼워넣어줌
+
+
+<link rel="stylesheet" type="text/css" href="css/style.css">

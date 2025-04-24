@@ -1,0 +1,23 @@
+form input[type='radio']:not(old)+label{border:1px solid green;}
+
+인풋 라디오 버튼 '바로 뒤에 인접한' 라벨을 찾아 보더를 넣기
+괄호() 안에는 아무 글자든 넣어야 적용이 됨. 임의로 old를 넣음
+not: 초기값. 처음에 초기값으로 이렇게 넣어달라는 뜻
+
+
+form input[type='radio']:not(old):checked +label{background: green; color:white; font-weight: 700;}
+인풋 라디오 버튼 '바로 뒤에 인접한' 라벨을 찾아 input이 체크된 경우 백그라운드를 넣기
+
+
+h2:hover+p{background: black; color:white;font-weight: 700;}
+
+h2 위에 커서가 올라가면 p에 이하를 적용
+
+공통영역은 class, 위치점이 조금 다른 등 세부적인 요소가 포함되는 부분은 id
+
+li::after(:은 1개든 2개든 상관 없음-버전에 따라 다름
+li 뒤쪽에 추가
+
+
+트랜지션/애니메이션
+translate-이동, scale-확대축소, rotate-회전, skew-기울임

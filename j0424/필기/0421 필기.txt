@@ -1,0 +1,30 @@
+f5: 브라우저 내에서 무언가 바뀐 게 있나?
+하드디스크의 일부(로컬)에 백업본을 저장해두고 업데이트된 서버 대신 백업본을 먼저 가져옴
+
+ctrl+f5는 서버에서 업데이트해서 가져옴
+
+바로 실행시킬 때는 스크립트를 body 내부에 넣어야 함.
+
+null != undefined
+
+console.log("키 : "+document.querySelector("#height").value);  input 안의 값
+console.log("글자 :",document.querySelector("#bmi").innerText); 
+
+
+input box = value
+그 외 => innerText
+
+class, id - ".", "#"
+위치점 찾기 - document.querySelector("#pw")
+
+onclick
+onkeyup-onkeydown
+onchange
+
+라디오, 체크박스, 셀렉트는 
+나머지는 
+
+
+비밀번호
+이메일
+다음주소

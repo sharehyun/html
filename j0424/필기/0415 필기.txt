@@ -1,0 +1,16 @@
+html교재 341p - 플랙스 레이아웃
+최근에 나온 기술, 배치에 대한 기본적인 형태
+
+html5에서 flex가 나옴(nav에서 쓴 적 있음)
+
+개별 li의 부모인 ul에 display:flex;를 넣어야 가로로 정렬
+flex-direction: 방향 설정
+flex-wrap - width 끝을 만났을때 한줄로 쭉 떨어지게 할건지, 밑으로 떨어지게 할건지
+flex-flow - 
+
+flex-start
+justify-content:center; - 가운데 정렬
+
+float-right
+
+border-width:
