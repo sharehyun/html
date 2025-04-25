@@ -77,6 +77,8 @@
                     $(`#${updateNum}`).html(hdata);
                     $("#title").val("");
                     $("#id").val(""); 
+                    $("#save").text("게시글 저장");
+                    suFlag = 0;
                 }
             })//save
 
@@ -92,7 +94,7 @@
             //수정화면이동 이벤트
             $(document).on("click",".chgBtn",function(){
                 updateNum = $(this).closest('tr').attr('id');
-                if(confirm("게시글을 수정하시겠습니까?")){
+                if(confirm(`${updateNum}번 게시글을 수정하시겠습니까?`)){
                     $("#title").val($(this).closest('tr').children()[1].innerText);
                     $("#id").val($(this).closest('tr').children()[2].innerText);
                     $("#save").text("수정저장");
