@@ -17,12 +17,14 @@
 				for(let i=1; i<=31; i++){hdata += `<option value="${i}">${i}</option>`;}
 				$("#birth_day").append(hdata);
 			})//jquery
+			
 			function cbtn(){
 				let name = $("#name").val();
 				let nameptn = /^[가-힣]{2,10}$/;
 				if(!nameptn.test(name)){
 					alert("이름은 한글 2~10단어 내로 입력해 주세요.");
 					$("#name").focus();
+					return;
 				};
 
 				let id = $("#id").val();
@@ -30,6 +32,7 @@
 				if (!idptn.test(id)){
 					alert("아이디 첫글자는 영문자, 총 4~16자리로 이루어져야 합니다.")
 					$("#id").focus();
+					return;
 				};
 
 				let pw1 = $("#pw1").val();
@@ -37,7 +40,10 @@
 				if(!pw1ptn.test(pw1)){
 					alert("비밀번호는 영문 대소문자와 특수문자를 포함하여 8자리 이상으로 작성해주세요.")
 					$("#pw1").focus();
+					return;
 				};
+
+				agree.submit();
 
 			}//cbtn
 
