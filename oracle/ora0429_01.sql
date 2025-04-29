@@ -315,12 +315,143 @@ select * from stuscore;
 select kor from stuscore order by kor desc;
 
 --이름으로 역순정렬, 순차정렬
-select name from stuscore order by name desc;
-select name from stuscore order by name asc;
+select * from stuscore order by name desc;
+select * from stuscore order by name asc;
 
 -- 합계로 역순정렬, 순차정렬
-select total from stuscore order by total asc;
-select total from stuscore order by total desc;
+select * from stuscore order by total asc;
+select * from stuscore order by total desc;
+
+-- 파이썬 성적정렬 
+
+-- 등수처리 진행`1
+select sno,name,total,rank() over(order by total desc)as ranks from stuscore;
+
+select sno,rank from stuscore;
+
+-- sno 1, 1
+update stuscore set rank=1 where sno=1;
+
+-- sno 2, 5
+update stuscore set rank=5 where sno=2;
+
+-- memno3 9.9, memno 50000,memno2 1000
+
+select * from mem1;
+update mem1 set memno=50000, memno2=10 where memno3=9.9;
+
+-- memno2=999, memno=5000000, memno3=50.05
+update mem1 set memno=5000000, memno3=50.05 where memno2=999;
+
+
+desc mem2;
+select * from mem2;
+-- id aaa1111을 찾아서, 주민번호 010101-2222222, 국어점수 88, 영어점수 95 으로 변경하시오.
+update mem2 set juminno='010101-2222222', kor=88, eng=95 where id='aaa1111';
+
+
+
+select rank() over(order by salary desc) as ranks from employees;
+
+
+-- 등수처리 stuscore
+select sno,rank() over(order by total desc) as ranks from stuscore;
+select rank() over (order by total desc) as ranks from stuscore;
+select sno,rank from stuscore order by total desc;
+
+
+-- update
+
+update stuscore a
+set rank=1 
+where a.sno=1;
+
+update stuscore a
+set rank = (select ranks from (select sno,rank() over(order by total desc) as ranks from stuscore) b
+where a.sno = b.sno)
+;
+
+update stuscore a
+set rank = (select ranks from (select sno,rank() over(order by total desc) as ranks from stuscore) b
+where a.sno=b.sno)
+;
+
+select * from stuscore; 
+
+
+
+select sno,rank() over(order by total desc) as ranks from stuscore
+where sno=96;
+select sno,total,rank from stuscore;
+
+
+-- 컬럼 2개 검색할때 사용되는 sno, 입력할때 사용되는 ranks
+select sno,rank() over (order by total desc) as ranks from stuscore;
+
+-- sno,rank() 2개 컬럼을 찾아 rank()컬럼만 출력하시오
+select ranks from (select sno,rank() over(order by total desc) as ranks from stuscore);
+
+
+
+select sno,rank from stuscore;
+
+commit;
+select * from stuscore;
+
+-- 테이블 (데이터포함) 그대로 복사
+create table stuscore2 as select * from stuscore;
+select * from stuscore2;
+
+desc stuscore -- 컬럼 8개 : sno,name,kor,eng,math,total,avg,rank
+-- 컬럼 5개만 가져옴 : sno,name,kor,eng,math
+create table stuscore3 as select sno,name,kor,eng,math from stuscore;
+
+-- stuscore3 번호, 국어, 영어, 수학, 합계, 평균을 출력해보시오.
+-- 등수 출력하시오.
+select * from stuscore3;
+select sno,name,kor,eng,math,(kor+eng+math) as total,round((kor+eng+math)/3,2) as avg,rank() over (order by kor+eng+math desc) as ranks from stuscore3;
+
+-- total 컬럼을 추가
+alter table stuscore3 add total number(3);
+desc stuscore3;
+
+-- avg 컬럼을 추가
+alter table stuscore3 add avg number(5,2);
+desc stuscore3;
+
+-- rank 컬럼을 추가
+alter table stuscore3 add rank number(3);
+
+select * from stuscore3;
+
+
+-- 1번째 rank()를 rank컬럼에 저장
+update stuscore3 a
+set rank=(select ranks from (select sno,rank() over (order by total desc) as ranks from stuscore3) b
+where a.sno=b.sno)
+;
+
+select ranks from (select sno,rank() over (order by total desc) as ranks from stuscore3);
+-- 2번째 avg()를 avg컬럼에 저장
+update stuscore3 set total = kor+eng+math;
+update stuscore3 set avg = (kor+eng+math)/3;
+
+-- sno 1,2,3,4
+select * from stuscore3;
+
+-- rank 등수 어떤 형태로 등수를 출력
+-- sno 96,23,3,22...
+select sno,rank() over (order by total desc) as ranks from stuscore3;
+
+
+
+
+select create table mem4(
+no number(4)
+);
+
+
+
 
 
 
