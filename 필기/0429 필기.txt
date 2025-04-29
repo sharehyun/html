@@ -1,0 +1,38 @@
+파이썬 디장고, 자바 스프링과 오라클을 연결
+오라클 유저 우클릭-속성-사용자 정보, 세부정보로 연결가능
+
+SQL 구조적 쿼리 사용 언어
+
+
+안에 들어있는 데이터만 대소문자 구문, 컬럼, 명령어는 구분X
+
+
+-- 날짜 포맷 변경 방법 date타입 -> char타입으로 변경해서 날짜 형태를 바꿀 수 있음.
+select to_char(sdate,'yyyy-mm-dd hh:mi:ss') from date1;
+
+select to_char(memno,'999,999,999') from mem1;
+select to_char(memno,'000,000,000') from mem1;
+
+999는 0을 지움
+000은 빈 공백을 0으로 채워줌
+
+commit 안하면 다른 사용자는 대기
+
+dml 제외 명령어는 롤백이 없다 - 삭제시 백업 꼭 하고 삭제
+dml도 commit을 신중히
+
+
+update stuscore a
+set rank = select ranks from(select sno,rank() over (order by total desc from stuscore) b)
+where a.sno=b.sno;
+
+stuscore을 업데이트하려고 함
+일단 랭크가 없는 a, 랭크가 있는 b를 만들 거임
+stuscore은 a
+set rank= 랭크를 등호 뒤쪽 걸로 업데이트,
+sno,rank()(생략)의 테이블을 검색
+rank()는 stuscore3의 total을 기준으로 정렬되어 순위가 매겨짐  -- over(order by total desc from stuscore)
+그렇게 만들어진 sno,rank()(생략) - 닉네임 ranks의 테이블을 b라고 함
+rank 하나에 ranks (sno,rank() 테이블에서 가져온 rank())가 많으니까 where? a의 sno와 b의 sno가 동일한 곳에만 b의 해당 ranks를 넣도록 함 
+ 
+rank() over (order by total desc)
