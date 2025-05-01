@@ -42,7 +42,7 @@
                 hdata+=`<button type="button" class="chgBtn">수정</button>`;
                 hdata+=`<button type="button" class="delBtn">삭제</button>`;
                 hdata+=`</td></tr>`;
-                no++    
+                no++;
             }
             $("#tbody").html(hdata);
 
@@ -65,7 +65,7 @@
                 no++
                 }else{
                     hdata = ``;
-                    hdata+=`<td>${no}</td>`;
+                    hdata+=`<td>${updateNum}</td>`;
                     hdata+=`<td>${$("#title").val()}</td>`;
                     hdata+=`<td>${$("#id").val()}</td>`;
                     hdata+=`<td>2025-04-24</td>`;

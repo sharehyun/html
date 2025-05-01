@@ -1,0 +1,40 @@
+dml 조작어만 commit, rollback 있음
+별칭 사용 (select kor+eng ke from stuscore s;)에서 ke, s
+
+between은 등호 포함 <=
+<>를 가끔 html태그로 잘못 인식할 때 활용하기 좋음
+
+앞에 not 붙이면 != 와 같은 효과
+
+
+select * from stuscore order by kor asc, eng desc;
+kor 순차로 정렬하고 똑같은 점수가 있을 때 eng 역순정렬
+
+
+
+        students2 = [*students]  # 복사
+        print("[ 학생성적정렬 ]")
+        print("1. 이름 순차정렬")
+        print("2. 이름 역순정렬")
+        print("3. 합계 순차정렬")
+        print("4. 합계 역순정렬")
+        print("5. 번호 순차정렬")
+        print("6. 번호 역순정렬")
+        print("0. 이전화면이동")
+        print("-"*30)
+        choice = int(input("원하는 번호를 입력하세요.>> "))
+        if choice == 1:  # 이름순차정렬
+            students2.sort(key=lambda x:x['name'])
+        elif choice == 2:  # 이름역순정렬
+            students2.sort(key=lambda x:x['name'],reverse=True)
+        elif choice == 3:  # 합계순차정렬
+            students2.sort(key=lambda x:x['total'])
+        elif choice == 4:  # 합계역순정렬
+            students2.sort(key=lambda x:x['total'],reverse=True)
+        elif choice == 5:  # 번호순차정렬
+            students2.sort(key=lambda x:x['no'])
+        elif choice == 6:  # 번호역순정렬
+            students2.sort(key=lambda x:x['no'],reverse=True)
+        elif choice == 0:
+            continue
+        stu_output(title,students2)
