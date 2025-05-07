@@ -1,0 +1,12 @@
+컬럼 추가수정삭제
+add
+modify
+drop
+
+not null - 널 허용X
+unique - 중복된 값 허용X
+primary key - 널,중복X
+foreign key?
+check
+
+기본키-외래키 중요함
